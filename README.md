@@ -49,6 +49,6 @@ redisCacheProvider(pool, {
 })
 ```
 
-
 # License
+
 See LICENSE file

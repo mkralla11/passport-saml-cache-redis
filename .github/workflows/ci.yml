@@ -25,6 +25,3 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm run docker:lint
       - run: npm run docker:test
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
