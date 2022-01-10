@@ -1,0 +1,52 @@
+{
+  "name": "passport-saml-cache-redis",
+  "version": "1.0.0",
+  "description": "A redis-backed cache provider for passport-saml",
+  "main": "dist/index.js",
+  "repository": "https://github.com/mkralla11/passport-saml-cache-redis",
+  "author": "Mike Khirallah",
+  "license": "GPL",
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "devDependencies": {
+    "@types/node": "^16.4.0",
+    "@digabi/eslint-config": "^1.0.6",
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.3.5",
+    "ioredis": "^4.16.0",
+    "node-saml": "4.0.0-beta.2",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@types/ioredis": "4.28.7"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint .",
+    "prettier-write": "prettier --write .",
+    "test": "jest --coverage --silent",
+    "test-no-opts": "jest",
+    "prepublish": "npm run build",
+    "with-nodemon": "nodemon -e js,ts,json --exec \"$NODEMON_COMMAND\"",
+    "docker:test": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm run test' npm run docker:flow",
+    "docker:test:iterate": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='NODEMON_COMMAND=\"npm run prettier-write && npm run lint && npm run test-no-opts\" npm run with-nodemon'  npm run docker:flow",
+    "docker:lint": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm run lint' npm run docker:flow",
+    "docker:prettier-write": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm run prettier-write' npm run docker:flow",
+    "docker:flow": "COMPOSE_PROJECT_NAME='passport-saml-cache-redis' node ./docker/scripts/setup-runner.js"
+  }
+}

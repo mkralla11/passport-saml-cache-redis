@@ -1,0 +1,5 @@
+{
+  "extends": "@digabi/eslint-config",
+  "parserOptions": { "project": "./tsconfig.test.json" },
+  "ignorePatterns": ["node_modules", "dist", "helpers/connectToRedis.ts", "helpers/setupEnvHelper.js"]
+}

@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  redis_dev:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - dev_docker_data_cache_redis_data:/data
+    command: ['redis-server', '--appendonly', 'yes', '--requirepass', '${REDIS_PASSWORD}']
+    ports:
+      - ${REDIS_PORT_PUBLIC:-6761}:${REDIS_PORT}
+    logging:
+      driver: none
+    networks:
+      pscr_dev:
+        aliases:
+          - ${REDIS_HOST}
+volumes:
+  dev_docker_data_cache_angular_dist:
+  dev_docker_data_cache_redis_data:
+    name: dev_docker_data_cache_redis_data_${NODE_ENV:-dev}
