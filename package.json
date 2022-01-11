@@ -36,7 +36,7 @@
     "@types/ioredis": "4.28.7"
   },
   "scripts": {
-    "build-lib": "tsc",
+    "build-lib": "./node_modules/typescript/bin/tsc",
     "lint": "eslint .",
     "prettier-write": "prettier --write .",
     "test": "jest --coverage --silent",
