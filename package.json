@@ -36,7 +36,7 @@
     "@types/ioredis": "4.28.7"
   },
   "scripts": {
-    "build": "tsc",
+    "build-lib": "tsc",
     "lint": "eslint .",
     "prettier-write": "prettier --write .",
     "test": "jest --coverage --silent",
@@ -48,7 +48,7 @@
     "docker:lint": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm run lint' npm run docker:flow",
     "docker:prettier-write": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm run prettier-write' npm run docker:flow",
     "docker:publish": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm publish' npm run docker:flow",
-    "docker:build": "NODE_ENV=production  MAIN_COMPOSE_COMMAND='npm run build' npm run docker:flow",
+    "docker:build-lib": "NODE_ENV=production BUILD=true  MAIN_COMPOSE_COMMAND='npm run build' npm run docker:flow",
     "docker:flow": "COMPOSE_PROJECT_NAME='passport-saml-cache-redis' node ./docker/scripts/setup-runner.js"
   }
 }

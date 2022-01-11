@@ -13,6 +13,7 @@ services:
       BASE_PWD: ${BASE_PWD}
       COMPOSE_PROJECT_NAME: ${COMPOSE_PROJECT_NAME}
       MAIN_COMPOSE_COMMAND: ${MAIN_COMPOSE_COMMAND}
+      BUILD: ${BUILD}
     tty: true
     stdin_open: true
     working_dir: /app
