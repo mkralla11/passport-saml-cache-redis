@@ -1,6 +1,6 @@
 {
   "name": "passport-saml-cache-redis",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A redis-backed cache provider for passport-saml",
   "main": "dist/index.js",
   "repository": "https://github.com/mkralla11/passport-saml-cache-redis",
@@ -41,13 +41,14 @@
     "prettier-write": "prettier --write .",
     "test": "jest --coverage --silent",
     "test-no-opts": "jest",
-    "prepublish": "npm run build",
+    "prepare": "npm run docker:build",
     "with-nodemon": "nodemon -e js,ts,json --exec \"$NODEMON_COMMAND\"",
     "docker:test": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm run test' npm run docker:flow",
     "docker:test:iterate": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='NODEMON_COMMAND=\"npm run prettier-write && npm run lint && npm run test-no-opts\" npm run with-nodemon'  npm run docker:flow",
     "docker:lint": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm run lint' npm run docker:flow",
     "docker:prettier-write": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm run prettier-write' npm run docker:flow",
     "docker:publish": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm publish' npm run docker:flow",
+    "docker:build": "NODE_ENV=production  MAIN_COMPOSE_COMMAND='npm run build' npm run docker:flow",
     "docker:flow": "COMPOSE_PROJECT_NAME='passport-saml-cache-redis' node ./docker/scripts/setup-runner.js"
   }
 }

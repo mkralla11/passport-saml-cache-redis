@@ -7,9 +7,7 @@ services:
       - dev_docker_data_cache_redis_data:/data
     command: ['redis-server', '--appendonly', 'yes', '--requirepass', '${REDIS_PASSWORD}']
     ports:
-      - ${REDIS_PORT_PUBLIC:-6761}:${REDIS_PORT}
-    logging:
-      driver: none
+      - ${REDIS_PORT_PUBLIC:-6761}:${REDIS_PORT:-6379}
     networks:
       pscr_dev:
         aliases:

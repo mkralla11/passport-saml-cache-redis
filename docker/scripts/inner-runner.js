@@ -4,10 +4,10 @@ const { promisify } = require('util')
 const fs = require('fs')
 const readdir = promisify(fs.readdir.bind(fs))
 
-function requireUncached(mod) {
-  delete require.cache[require.resolve(mod)]
-  return require(mod)
-}
+// function requireUncached(mod) {
+//   delete require.cache[require.resolve(mod)]
+//   return require(mod)
+// }
 
 async function packageExists(name) {
   try {
@@ -22,6 +22,7 @@ async function run() {
   let mainComposeCommand
 
   const isTest = process.env.NODE_ENV === 'test'
+  const isProduction = process.env.NODE_ENV === 'production'
 
   const neededPackages = (
     await Promise.all(
@@ -49,7 +50,7 @@ async function run() {
       onError: () => new Error('Could not install needed packages on demand.'),
     })
     // refresh those modules
-    neededPackages.map(requireUncached)
+    // neededPackages.map(requireUncached)
   }
 
   await preInstallPackagesToNamedVolume({
@@ -79,7 +80,7 @@ async function run() {
     ...(mainComposeCommand ? ['-f', './docker/compose/redis.yml', '-f', './docker/compose/main.yml'] : []),
     ...(process.env.RERUN_COMMAND ? ['-f', './docker/compose/rerun.yml'] : []),
     'up',
-    ...(isTest ? ['--abort-on-container-exit'] : []),
+    ...(isTest || isProduction ? ['--abort-on-container-exit'] : []),
     '--build',
   ]
   console.log(composeArray)

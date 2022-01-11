@@ -2,7 +2,7 @@ const { /*spawn,*/ exec } = require('child_process')
 // const path = require('path')
 async function run() {
   const abortOnExit =
-    process.env.NODE_ENV === 'test' || process.env.ABORT_ON_CONTAINER_EXIT ? '--abort-on-container-exit' : ''
+    process.env.NODE_ENV === 'test' ||  process.env.NODE_ENV === 'production' || process.env.ABORT_ON_CONTAINER_EXIT ? '--abort-on-container-exit' : ''
 
   let command = exec(
     `docker-compose  --project-name ${process.env.COMPOSE_PROJECT_NAME} --project-directory ./docker/compose -f ./docker/compose/setup-runner.yml up ${abortOnExit} --build`,
