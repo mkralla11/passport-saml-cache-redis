@@ -42,7 +42,7 @@ The `redisCacheProvider` function accepts an optional second argument. The defau
 ```typescript
 redisCacheProvider(pool, {
   // The maximum age of a cache entry in milliseconds. Uses redis's TTL implementation under the hood.
-  ttlMillis: 1000 * 60 * 60, // 1 hour,
+  ttlMillis: 600000, // 10 minutes,
   // A logger to use. By default, messages are logged to console.
   // The logger should support at least `logger.info()` and `logger.error()` methods.
   logger: console,
