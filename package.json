@@ -41,7 +41,6 @@
     "prettier-write": "prettier --write .",
     "test": "jest --coverage --silent",
     "test-no-opts": "jest",
-    "prepare": "npm run docker:build",
     "with-nodemon": "nodemon -e js,ts,json --exec \"$NODEMON_COMMAND\"",
     "docker:test": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='npm run test' npm run docker:flow",
     "docker:test:iterate": "NODE_ENV=test  MAIN_COMPOSE_COMMAND='NODEMON_COMMAND=\"npm run prettier-write && npm run lint && npm run test-no-opts\" npm run with-nodemon'  npm run docker:flow",
