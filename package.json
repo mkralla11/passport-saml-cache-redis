@@ -1,6 +1,6 @@
 {
   "name": "passport-saml-cache-redis",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A redis-backed cache provider for passport-saml",
   "main": "dist/index.js",
   "repository": "https://github.com/mkralla11/passport-saml-cache-redis",

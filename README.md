@@ -1,8 +1,8 @@
 # passport-saml-cache-redis
 
-<!--
+
 ![CI](https://github.com/mkralla11/passport-saml-cache-redis/workflows/CI/badge.svg)
- -->
+ 
 
 A redis-backed cache provider for [passport-saml](https://github.com/node-saml/passport-saml).
 
