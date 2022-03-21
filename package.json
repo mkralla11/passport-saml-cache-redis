@@ -33,7 +33,7 @@
     "nodemon": "^2.0.4"
   },
   "dependencies": {
-    "@types/ioredis": "4.28.9"
+    "@types/ioredis": "4.28.10"
   },
   "scripts": {
     "build-lib": "tsc",
