@@ -14,7 +14,7 @@
   ],
   "private": false,
   "devDependencies": {
-    "@types/node": "^16.4.0",
+    "@types/node": "^18.16.1",
     "@digabi/eslint-config": "^1.0.6",
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
